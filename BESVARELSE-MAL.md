@@ -450,7 +450,7 @@ Se oversikt over læringsmålene i en PDF-fil i Canvas https://oslomet.instructu
 
 **Plassering av SQL-spørringer:**
 
-[Bekreft at du har lagt SQL-spørringene i `test-scripts/queries.sql`]
+Jeg har lagt spørringer i `test-scripts/queries.sql`
 
 
 **Eventuelle feil og rettelser:**
