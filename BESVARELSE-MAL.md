@@ -121,6 +121,14 @@ leie_kostnad CHECK (leie_kostnad IS NULL OR leie_kostnad >= 0)
 ---------
 diagramen {
 
+  
+    STASJON {
+
+        BIGSERIAL stasjon_id PK
+        VARCHAR(100) navn
+        VARCHAR(100) adresse
+
+    }
 
     SYKKEL {
         BIGSERIAL sykkel_id PK
@@ -152,7 +160,6 @@ diagramen {
         NUMERIC leie_kostnad "NULL"
     }
 
-    %% Relasjoner
     STASJON ||--o{ LAAS : "har"
     STASJON ||--o{ SYKKEL : "har/oppbevarer"
     LAAS ||--o| SYKKEL : "kan være i bruk av"
@@ -160,12 +167,13 @@ diagramen {
     KUNDE  ||--o{ UTLEIE : "gjør"
 
 
+
+
 ### Oppgave 1.3: Primærnøkler
 
 **Valgte primærnøkler og begrunnelser:**
 
-[Skriv ditt svar her - forklar hvilke primærnøkler du har valgt for hver entitet og hvorfor]
-
+stasjon_id, 
 **Naturlige vs. surrogatnøkler:**
 
 [Skriv ditt svar her - diskuter om du har brukt naturlige eller surrogatnøkler og hvorfor]
