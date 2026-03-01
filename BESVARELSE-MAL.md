@@ -119,8 +119,7 @@ leie_kostnad CHECK (leie_kostnad IS NULL OR leie_kostnad >= 0)
 
 **ER-diagram:**
 
-erDiagram
-    STASJON {
+STASJON {
         BIGSERIAL stasjon_id PK
         VARCHAR(100) navn
         VARCHAR(100) adresse
