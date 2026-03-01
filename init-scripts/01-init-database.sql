@@ -111,7 +111,6 @@ WHERE sykkel_id IN (
 
 -- DBA setninger (rolle: kunde, bruker: kunde_1)
 
-
 -- Eventuelt: Opprett indekser for ytelse
 
 

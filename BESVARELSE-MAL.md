@@ -290,19 +290,20 @@ ORDER BY table_name;
 **SQL for å opprette rolle:**
 
 ```sql
-[Skriv din SQL-kode for å opprette rollen 'kunde' her]
+CREATE ROLE kunde;
 ```
 
 **SQL for å opprette bruker:**
 
 ```sql
-[Skriv din SQL-kode for å opprette brukeren 'kunde_1' her]
+CREATE USER kunde_1 WITH PASSWORD 'kunde_123';
+GRANT kunde TO kunde_1;
 ```
 
 **SQL for å tildele rettigheter:**
 
 ```sql
-[Skriv din SQL-kode for å tildele rettigheter til rollen her]
+GRANT USAGE ON SCHEMA public TO kunde;
 ```
 
 ---
@@ -312,7 +313,9 @@ ORDER BY table_name;
 **SQL for VIEW:**
 
 ```sql
-[Skriv din SQL-kode for VIEW her]
+GRANT SELECT ON stasjon TO kunde;
+GRANT SELECT ON mine_utleier TO kunde;
+REVOKE ALL ON utleie FROM kunde;
 ```
 
 **Ulempe med VIEW vs. POLICIES:**
