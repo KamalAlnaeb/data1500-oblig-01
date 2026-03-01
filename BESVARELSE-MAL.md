@@ -118,12 +118,9 @@ inlevert_tidspunkt  CHECK (innlevert_tidspunkt IS NULL OR innlevert_tidspunkt >=
 leie_kostnad CHECK (leie_kostnad IS NULL OR leie_kostnad >= 0)
 
 **ER-diagram:**
+---------
+diagramen {
 
-STASJON {
-        BIGSERIAL stasjon_id PK
-        VARCHAR(100) navn
-        VARCHAR(100) adresse
-    }
 
     SYKKEL {
         BIGSERIAL sykkel_id PK
@@ -161,6 +158,7 @@ STASJON {
     LAAS ||--o| SYKKEL : "kan være i bruk av"
     SYKKEL ||--o{ UTLEIE : "registrert i"
     KUNDE  ||--o{ UTLEIE : "gjør"
+
 
 ### Oppgave 1.3: Primærnøkler
 
