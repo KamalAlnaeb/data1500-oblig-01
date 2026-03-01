@@ -58,8 +58,38 @@ leie_kostnad for å regne hvor mye må brukeren betale
 ### Oppgave 1.2: Datatyper og `CHECK`-constraints
 
 **Valgte datatyper og begrunnelser:**
+#### 1.Stasjon: 
+stasjon_id bigserial
+navn varchar(100)
+adresse varchar(100)
 
-[Skriv ditt svar her - forklar hvilke datatyper du har valgt for hver attributt og hvorfor]
+#### 2. Sykkel
+sykkel_id bigserial
+hente_tidspunkt date
+stasjon_id bigint (NULL)
+laas_id bigint (NULL) når utleid
+
+#### 3.Lås
+laas_id bigserial
+laas_nummer smallint
+stasjon_id bigint
+
+#### 4. Kunde
+kunde_id bigserial
+fornavn varchar(50)
+etternavn varchar(50)
+mobilnummer varchar(16)
+epost varchar(100)
+
+#### 5. Utleie
+utleie_id bigserial
+sykkel_id bigint
+kunde_id bigint
+utlevert_tidspunkt timestamptz
+inlevert_tidspunkt timestamptz (NULL) for pågående utleie
+leie_kostnad numeric(10,2) (NULL)
+
+
 
 **`CHECK`-constraints:**
 
