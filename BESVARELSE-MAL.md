@@ -242,7 +242,22 @@ stasjon_id, sykkel_id, laas_id, kunde_id, utleie_id
 
 **Dokumentasjon av vellykket kjøring:**
 
-[Skriv ditt svar her - f.eks. skjermbilder eller output fra terminalen som viser at databasen ble opprettet uten feil]
+data1500-postgres  | /usr/local/bin/docker-entrypoint.sh: running /docker-entrypoint-initdb.d/01-init-database.sql
+data1500-postgres  | BEGIN
+data1500-postgres  | CREATE TABLE
+data1500-postgres  | CREATE TABLE
+data1500-postgres  | CREATE TABLE
+data1500-postgres  | CREATE TABLE
+data1500-postgres  | CREATE TABLE
+data1500-postgres  | CREATE INDEX
+data1500-postgres  | INSERT 0 5
+data1500-postgres  | INSERT 0 100
+data1500-postgres  | INSERT 0 5
+data1500-postgres  | INSERT 0 100
+data1500-postgres  | INSERT 0 50
+data1500-postgres  | UPDATE 50
+data1500-postgres  | COMMIT
+
 
 **Spørring mot systemkatalogen:**
 
@@ -257,8 +272,14 @@ ORDER BY table_name;
 **Resultat:**
 
 ```
-[Skriv resultatet av spørringen her - list opp alle tabellene som ble opprettet]
-```
+ table_name
+------------
+ kunde
+ laas
+ stasjon
+ sykkel
+ utleie
+(5 rows)```
 
 ---
 
