@@ -93,13 +93,75 @@ leie_kostnad numeric(10,2) (NULL)
 
 **`CHECK`-constraints:**
 
-[Skriv ditt svar her - list opp alle CHECK-constraints du har lagt til og forklar hvorfor de er nødvendige]
+#### 1.Stasjon: 
+stasjon_id 
+navn 
+adresse 
+
+#### 2. Sykkel
+sykkel_id 
+hente_tidspunkt
+stasjon_id 
+laas_id 
+
+#### 3.Lås 
+laas_nummer CHECK (laas_nummer BETWEEN 1 AND 20)
+stasjon_id 
+
+#### 4. Kunde
+mobilnummer CHECK (mobilnummer ~ '^\+?[0-9]{8,15}$')
+epost CHECK (epost ~* '^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$')
+
+
+#### 5. Utleie
+inlevert_tidspunkt  CHECK (innlevert_tidspunkt IS NULL OR innlevert_tidspunkt >= utlevert_tidspunkt)
+leie_kostnad CHECK (leie_kostnad IS NULL OR leie_kostnad >= 0)
 
 **ER-diagram:**
 
-[Legg inn mermaid-kode eller eventuelt en bildefil fra `mermaid.live` her]
+erDiagram
+    STASJON {
+        BIGSERIAL stasjon_id PK
+        VARCHAR(100) navn
+        VARCHAR(100) adresse
+    }
 
----
+    SYKKEL {
+        BIGSERIAL sykkel_id PK
+        DATE hente_tidspunkt
+        BIGINT stasjon_id FK "NULL hvis ikke på stasjon"
+        BIGINT laas_id FK "NULL hvis ikke utleid"
+    }
+
+    LAAS {
+        BIGSERIAL laas_id PK
+        SMALLINT laas_nummer
+        BIGINT stasjon_id FK
+    }
+
+    KUNDE {
+        BIGSERIAL kunde_id PK
+        VARCHAR(50) fornavn
+        VARCHAR(50) etternavn
+        VARCHAR(16) mobilnummer 
+        VARCHAR(100) epost
+    }
+
+    UTLEIE {
+        BIGSERIAL utleie_id PK
+        BIGINT sykkel_id FK
+        BIGINT kunde_id FK
+        TIMESTAMPTZ utlevert_tidspunkt
+        TIMESTAMPTZ inlevert_tidspunkt "NULL = pågående"
+        NUMERIC leie_kostnad "NULL"
+    }
+
+    %% Relasjoner
+    STASJON ||--o{ LAAS : "har"
+    STASJON ||--o{ SYKKEL : "har/oppbevarer"
+    LAAS ||--o| SYKKEL : "kan være i bruk av"
+    SYKKEL ||--o{ UTLEIE : "registrert i"
+    KUNDE  ||--o{ UTLEIE : "gjør"
 
 ### Oppgave 1.3: Primærnøkler
 
