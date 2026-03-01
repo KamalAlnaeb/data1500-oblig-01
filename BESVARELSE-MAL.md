@@ -1,10 +1,10 @@
 # Besvarelse - Refleksjon og Analyse
 
-**Student:** [Ditt navn]
+**Student:** Kamal Alnaeb
 
-**Studentnummer:** [Ditt studentnummer]
+**Studentnummer:** kaaln5036
 
-**Dato:** [Innleveringsdato]
+**Dato:** 01.03.2026
 
 ---
 
@@ -14,11 +14,44 @@
 
 **Identifiserte entiteter:**
 
-[Skriv ditt svar her - list opp alle entitetene du har identifisert]
-
+Stasjon, Sykkel, Lås, Kunde, Utleie
 **Attributter for hver entitet:**
 
-[Skriv ditt svar her - list opp attributtene for hver entitet]
+#### 1.Stasjon: 
+stasjon_id stabil primærnøkkel for å identifisere stasjonen.
+navn  er lettere å lese av brukere.
+adresse for å gjøre det lettere for brukere å lukalisere stasjonen.
+
+#### 2. Sykkel
+sykkel_id stabil primærnøkkel for å identifisere sykkel.
+hente_tidspunkt for å registrere når brukeren har startet turen.
+stasjon_id fremmednøkkel for å spore hvilken stasjon sykkelen befinner seg på.
+laas_id  for å spore hvilken lås sykkelen står i.
+
+#### 3.Lås
+laas_id  stabil primærnøkkel for å identifisere lås.
+laas_nummer enkel måte for å referere til låsene i en stasjon
+stasjon_id for mange lås tilhører en stasjon
+
+#### 4. Kunde
+kunde_id stabil primærnøkkel for å identifisere kunde.
+fornavn
+etternavn
+mobilnummer
+epost
+
+
+#### 5. Utleie
+utleie_id stabil primærnøkkel for å identifisere utleie.
+sykkel_id fremmednøkkel for å knytte utleien til en spesifikk sykkel
+kunde_id fremmednøkkel for å knytte utleien til kunden,
+utlevert_tidspunkt hjelper å beregne leie kostnat
+inlevert_tidspunkt hjelper å beregne leie kostnat
+leie_kostnad for å regne hvor mye må brukeren betale
+
+
+
+
 
 ---
 
