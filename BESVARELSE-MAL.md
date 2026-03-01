@@ -173,7 +173,7 @@ diagramen {
 
 **Valgte primærnøkler og begrunnelser:**
 
-stasjon_id, 
+stasjon_id, sykkel_id, laas_id, kunde_id, utleie_id
 **Naturlige vs. surrogatnøkler:**
 
 [Skriv ditt svar her - diskuter om du har brukt naturlige eller surrogatnøkler og hvorfor]
